@@ -6,7 +6,7 @@
 /*   By: slaajour <slaajour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 07:38:03 by slaajour          #+#    #+#             */
-/*   Updated: 2022/07/02 23:05:44 by slaajour         ###   ########.fr       */
+/*   Updated: 2022/07/05 04:29:40 by slaajour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ void	ft_putstr(char *str);
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(char *s1, char *s2);
 
-	/* ARGS PARAMS */
-void	error_detected(void);
+	/* ARGS PARAMS */	
 void	check_ber(char *str);
 
 	/* MAP STUFF */
@@ -89,5 +88,19 @@ void	ft_putnbr(int nb);
 void	ft_putchar(char c);
 char	*ft_itoa(int n);
 int		exit_game(void);
+void	error_wall(void);
+void	ft_error(void);
+
+	/* DRAWING MAP */
+void	draw_up(t_game *game);
+void	draw_down(t_game *game);
+void	draw_left(t_game *game);
+void	draw_right(t_game *game);
+void	draw_astro(t_game *game);
+void	draw_space(t_game *game);
+void	draw_spship(t_game *game);
+void	draw_planet(t_game *game);
+void	draw_earth(t_game *game);
+void	display_image_bonus(t_game *game);
 
 #endif

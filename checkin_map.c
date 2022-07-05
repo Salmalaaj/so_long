@@ -6,7 +6,7 @@
 /*   By: slaajour <slaajour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 10:30:26 by slaajour          #+#    #+#             */
-/*   Updated: 2022/07/02 17:07:33 by slaajour         ###   ########.fr       */
+/*   Updated: 2022/07/05 04:57:38 by slaajour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@ void	wall_turn(t_game *game)
 {
 	int		i;
 	int		j;
+	int		k;
 
 	i = 0;
-	j = -1;
-	while (game->map[0][++j])
+	j = 0;
+	k = 0;
+	while (game->map[0][j])
 	{
 		if (game->map[0][j] != '1')
-		{
-			write(1, "Oupsie! Error!\n1 is missing in the wall :)", 42);
-			exit (0);
-		}
+			error_wall();
+		j++;
 	}
 	while (game->map[i])
 		i++;
-	j = -1;
-	while (game->map[i - 1][++j])
+	while (game->map[i - 1][k])
 	{
-		if (game->map[i - 1][j] != '1')
-		{
-			write(1, "Oupsie! Error!\n1 is missing in the wall :)", 42);
-			exit (0);
-		}
+		if (k == ft_strlen(game->map[i - 1]) && game->map[i - 1][k] != '\0')
+			error_wall();
+		else if (game->map[i - 1][k] != '1')
+			error_wall();
+		k++;
 	}
 }
 
@@ -51,8 +50,8 @@ void	sides(t_game *game)
 	{
 		if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
 		{
-			write(1, "Oupsie! Error!\n1 is missing in the wall :)", 42);
-			exit (0);
+			write(2, "Error!\n1 is missing in the wall :)", 34);
+			exit (1);
 		}
 		else
 			i++;
@@ -74,8 +73,8 @@ void	check_map(t_game *g)
 				g->map[i][j] != 'E' && g->map[i][j] != '1' &&
 				g->map[i][j] != '0')
 			{
-				write(1, "Oupsie! Error!\nDifferent character is added :)\n", 47);
-				exit (0);
+				write(2, "Error!\nDifferent character is added :)\n", 39);
+				exit (1);
 			}
 			j++;
 		}
@@ -114,12 +113,12 @@ void	pce(t_game *game)
 {
 	if (game->p1 != 1)
 	{
-		write(1, "Oupsie! Error!\nThere should be just one player :)", 49);
-		exit(0);
+		write(2, "Error!\nThere should be one player :)", 41);
+		exit(1);
 	}
 	if (game->c1 < 1 || game->e1 < 1)
 	{
-		write(1, "Oupsie! Error!\nOne collectible/exit is missing :)", 49);
-		exit(0);
+		write(2, "Error!\nOne collectible/exit is missing :)", 41);
+		exit(1);
 	}
 }
