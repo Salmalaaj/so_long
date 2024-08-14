@@ -6,7 +6,7 @@
 /*   By: slaajour <slaajour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 10:30:26 by slaajour          #+#    #+#             */
-/*   Updated: 2022/07/07 05:04:39 by slaajour         ###   ########.fr       */
+/*   Updated: 2022/07/05 04:57:38 by slaajour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	pce(t_game *game)
 {
 	if (game->p1 != 1)
 	{
-		write(2, "Error!\nThere should be one player :)", 36);
+		write(2, "Error!\nThere should be one player :)", 41);
 		exit(1);
 	}
 	if (game->c1 < 1 || game->e1 < 1)
